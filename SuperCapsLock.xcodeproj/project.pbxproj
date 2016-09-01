@@ -10,14 +10,16 @@
 		35E5CF2C1D74BBE100B52EF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */; };
 		35E5CF2E1D74BBE100B52EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */; };
 		35E5CF311D74BBE100B52EF3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2F1D74BBE100B52EF3 /* MainMenu.xib */; };
+		35E5CF391D74BC3C00B52EF3 /* KeyboardBacklight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5CF381D74BC3C00B52EF3 /* KeyboardBacklight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35E5CF281D74BBE100B52EF3 /* CapsLockLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapsLockLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35E5CF281D74BBE100B52EF3 /* SuperCapsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperCapsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E5CF301D74BBE100B52EF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		35E5CF321D74BBE100B52EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35E5CF381D74BC3C00B52EF3 /* KeyboardBacklight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBacklight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +36,7 @@
 		35E5CF1F1D74BBE100B52EF3 = {
 			isa = PBXGroup;
 			children = (
-				35E5CF2A1D74BBE100B52EF3 /* CapsLockLight */,
+				35E5CF2A1D74BBE100B52EF3 /* SuperCapsLock */,
 				35E5CF291D74BBE100B52EF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -42,28 +44,30 @@
 		35E5CF291D74BBE100B52EF3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				35E5CF281D74BBE100B52EF3 /* CapsLockLight.app */,
+				35E5CF281D74BBE100B52EF3 /* SuperCapsLock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		35E5CF2A1D74BBE100B52EF3 /* CapsLockLight */ = {
+		35E5CF2A1D74BBE100B52EF3 /* SuperCapsLock */ = {
 			isa = PBXGroup;
 			children = (
 				35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */,
+				35E5CF381D74BC3C00B52EF3 /* KeyboardBacklight.swift */,
 				35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */,
 				35E5CF2F1D74BBE100B52EF3 /* MainMenu.xib */,
 				35E5CF321D74BBE100B52EF3 /* Info.plist */,
 			);
+			name = SuperCapsLock;
 			path = CapsLockLight;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		35E5CF271D74BBE100B52EF3 /* CapsLockLight */ = {
+		35E5CF271D74BBE100B52EF3 /* SuperCapsLock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35E5CF351D74BBE100B52EF3 /* Build configuration list for PBXNativeTarget "CapsLockLight" */;
+			buildConfigurationList = 35E5CF351D74BBE100B52EF3 /* Build configuration list for PBXNativeTarget "SuperCapsLock" */;
 			buildPhases = (
 				35E5CF241D74BBE100B52EF3 /* Sources */,
 				35E5CF251D74BBE100B52EF3 /* Frameworks */,
@@ -73,9 +77,9 @@
 			);
 			dependencies = (
 			);
-			name = CapsLockLight;
+			name = SuperCapsLock;
 			productName = CapsLockLight;
-			productReference = 35E5CF281D74BBE100B52EF3 /* CapsLockLight.app */;
+			productReference = 35E5CF281D74BBE100B52EF3 /* SuperCapsLock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -90,10 +94,11 @@
 				TargetAttributes = {
 					35E5CF271D74BBE100B52EF3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5R7N236Z28;
 					};
 				};
 			};
-			buildConfigurationList = 35E5CF231D74BBE100B52EF3 /* Build configuration list for PBXProject "CapsLockLight" */;
+			buildConfigurationList = 35E5CF231D74BBE100B52EF3 /* Build configuration list for PBXProject "SuperCapsLock" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -106,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				35E5CF271D74BBE100B52EF3 /* CapsLockLight */,
+				35E5CF271D74BBE100B52EF3 /* SuperCapsLock */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E5CF391D74BC3C00B52EF3 /* KeyboardBacklight.swift in Sources */,
 				35E5CF2C1D74BBE100B52EF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,11 +238,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CapsLockLight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.CapsLockLight;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.SuperCapsLock;
+				PRODUCT_NAME = SuperCapsLock;
 			};
 			name = Debug;
 		};
@@ -244,18 +251,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CapsLockLight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.CapsLockLight;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.SuperCapsLock;
+				PRODUCT_NAME = SuperCapsLock;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		35E5CF231D74BBE100B52EF3 /* Build configuration list for PBXProject "CapsLockLight" */ = {
+		35E5CF231D74BBE100B52EF3 /* Build configuration list for PBXProject "SuperCapsLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35E5CF331D74BBE100B52EF3 /* Debug */,
@@ -264,13 +272,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35E5CF351D74BBE100B52EF3 /* Build configuration list for PBXNativeTarget "CapsLockLight" */ = {
+		35E5CF351D74BBE100B52EF3 /* Build configuration list for PBXNativeTarget "SuperCapsLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35E5CF361D74BBE100B52EF3 /* Debug */,
 				35E5CF371D74BBE100B52EF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
