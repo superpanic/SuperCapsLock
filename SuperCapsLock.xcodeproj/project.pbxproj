@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35D2C3E51D81BB0F00E84E39 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 35D2C3E41D81BB0F00E84E39 /* README.md */; };
 		35E5CF2C1D74BBE100B52EF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */; };
 		35E5CF2E1D74BBE100B52EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */; };
 		35E5CF311D74BBE100B52EF3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2F1D74BBE100B52EF3 /* MainMenu.xib */; };
@@ -15,7 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35D2C3E41D81BB0F00E84E39 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		35E5CF281D74BBE100B52EF3 /* SuperCapsLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperCapsLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 				35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */,
 				35E5CF2F1D74BBE100B52EF3 /* MainMenu.xib */,
 				35E5CF321D74BBE100B52EF3 /* Info.plist */,
-				35D2C3E41D81BB0F00E84E39 /* README.md */,
 			);
 			name = SuperCapsLock;
 			path = CapsLockLight;
@@ -136,7 +133,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35D2C3E51D81BB0F00E84E39 /* README.md in Sources */,
 				35E5CF391D74BC3C00B52EF3 /* KeyboardBacklight.swift in Sources */,
 				35E5CF2C1D74BBE100B52EF3 /* AppDelegate.swift in Sources */,
 			);
