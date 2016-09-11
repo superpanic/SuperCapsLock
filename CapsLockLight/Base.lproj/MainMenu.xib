@@ -20,7 +20,7 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="794" y="619" width="340" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
@@ -50,11 +50,34 @@ https://github.com/CoordinatedHackers</string>
             <point key="canvasLocation" x="363" y="95"/>
         </window>
         <menu id="TJb-2T-EFR">
+            <items>
+                <menuItem title="Caps lock state" tag="1" enabled="NO" id="dAT-zE-csu">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="About" tag="2" id="zDW-BL-tu3">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openAboutWindow:" target="Voe-Tx-rLC" id="7rc-id-gRq"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Settings" tag="4" id="1E8-oc-GjU">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openSettingsWindow:" target="Voe-Tx-rLC" id="le8-8h-SPU"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Ldu-AR-28a"/>
+                <menuItem title="Quit" tag="3" id="V5J-j7-pdJ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quit:" target="Voe-Tx-rLC" id="aCb-Ne-I6d"/>
+                    </connections>
+                </menuItem>
+            </items>
             <point key="canvasLocation" x="239.5" y="-127.5"/>
         </menu>
-        <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="8wf-r5-bKe">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+        <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="8wf-r5-bKe">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
             <view key="contentView" id="57T-Sa-117">

@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		case SUPERCAPSLOCK = 1
 		case ABOUT
 		case QUIT
+		case SETTINGS
 	}
 	
 	// the menu icon
@@ -46,15 +47,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		button = statusItem.button
 		button.image = NSImage(named: "StatusItemIconBlk")
 		
-		menu.addItem( NSMenuItem(title: "Caps lock off", action: nil, keyEquivalent: ""))
-		menu.itemAtIndex(menu.numberOfItems-1)?.tag = menuTags.SUPERCAPSLOCK.rawValue
+		//menu.addItem( NSMenuItem(title: "Caps lock off", action: nil, keyEquivalent: ""))
+		//menu.itemAtIndex(menu.numberOfItems-1)?.tag = menuTags.SUPERCAPSLOCK.rawValue
 
-		menu.addItem( NSMenuItem(title: "About SuperCapsLock", action: #selector(AppDelegate.openAboutWindow(_:)), keyEquivalent: "") )
-		menu.itemAtIndex(menu.numberOfItems-1)?.tag = menuTags.ABOUT.rawValue
+		//menu.addItem( NSMenuItem(title: "About SuperCapsLock", action: #selector(AppDelegate.openAboutWindow(_:)), keyEquivalent: "") )
+		//menu.itemAtIndex(menu.numberOfItems-1)?.tag = menuTags.ABOUT.rawValue
 		
-		menu.addItem( NSMenuItem.separatorItem() )
-		menu.addItem( NSMenuItem(title: "Quit SuperCapsLock", action: #selector(AppDelegate.quit(_:)), keyEquivalent: "") )
-		menu.itemAtIndex(menu.numberOfItems-1)?.tag = menuTags.QUIT.rawValue
+		//menu.addItem( NSMenuItem.separatorItem() )
+
+		//menu.addItem( NSMenuItem(title: "Quit SuperCapsLock", action: #selector(AppDelegate.quit(_:)), keyEquivalent: "") )
+		//menu.itemAtIndex(menu.numberOfItems-1)?.tag = menuTags.QUIT.rawValue
+		
 		statusItem.menu = menu
 		
 		// turn on light if caps lock is already on
@@ -69,16 +72,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		NSEvent.addGlobalMonitorForEventsMatchingMask( NSEventMask.FlagsChangedMask, handler: capsLockOnEventGlobal )
 	}
 
-	func openAboutWindow(sender: AnyObject) {
+	@IBAction func openAboutWindow(sender: AnyObject) {
 		print("Open About window")
 		window.setIsVisible(true)
 		NSApp.activateIgnoringOtherApps(true)
 	}
 	
-	func quit(sender: AnyObject) {
+	@IBAction func quit(sender: AnyObject) {
 		print("Quit application")
 		NSApp.terminate(self)
 	}
+	
+	@IBAction func openSettingsWindow(sender: AnyObject) {
+		print("Open Settings window")
+		settingsWindow.setIsVisible(true)
+		NSApp.activateIgnoringOtherApps(true)
+	}
+	
 
 	func isCapsLockOn() -> Bool {
 		let eventModifier: UInt32 = GetCurrentKeyModifiers()
