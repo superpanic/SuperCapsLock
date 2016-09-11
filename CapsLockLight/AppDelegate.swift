@@ -12,13 +12,17 @@ import Carbon
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+//	@IBOutlet weak var window: NSWindow!
+	
 	@IBOutlet weak var window: NSWindow!
+	@IBOutlet weak var menu: NSMenu!
+	@IBOutlet weak var settingsWindow: NSWindow!
 	
 	// the status menu item
 	let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSSquareStatusItemLength)
 	
 	// the menu
-	let menu = NSMenu()
+//	let menu = NSMenu()
 	
 	// tags used for the menu items
 	enum menuTags: Int {
