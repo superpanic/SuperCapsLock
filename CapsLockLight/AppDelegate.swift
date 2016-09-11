@@ -18,6 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var menu: NSMenu!
 	@IBOutlet weak var settingsWindow: NSWindow!
 	
+	@IBOutlet weak var lowLightSettingsSlider: NSSliderCell!
+	@IBOutlet weak var highLightSettingsSlider: NSSliderCell!
+	@IBOutlet weak var shiftIsActiveSettingsCheckBox: NSButtonCell!
+	
 	
 	// the status menu item
 	let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSSquareStatusItemLength)
@@ -55,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		defInt = defaults.integerForKey("lowLightVal")
 		if (defInt != nil) {
 			lowLightVal = defInt!
-			//settingsWindow
+			
 		}
 		
 		defInt = defaults.integerForKey("highLoghtVal")

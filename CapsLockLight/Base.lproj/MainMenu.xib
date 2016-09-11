@@ -14,8 +14,11 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SuperCapsLock" customModuleProvider="target">
             <connections>
+                <outlet property="highLightSettingsSlider" destination="z7g-Eo-KC3" id="saD-UR-d2e"/>
+                <outlet property="lowLightSettingsSlider" destination="Ce4-Dq-PJb" id="6nM-hM-LwP"/>
                 <outlet property="menu" destination="TJb-2T-EFR" id="KXV-nb-OLe"/>
                 <outlet property="settingsWindow" destination="8wf-r5-bKe" id="ORl-q0-2uR"/>
+                <outlet property="shiftIsActiveSettingsCheckBox" destination="822-6a-EDX" id="f1I-OH-oeI"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="HwS-HZ-b8C"/>
             </connections>
         </customObject>
@@ -23,7 +26,7 @@
         <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="794" y="619" width="340" height="200"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="340" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -79,7 +82,7 @@ https://github.com/CoordinatedHackers</string>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="8wf-r5-bKe">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="196" y="240" width="250" height="335"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
             <view key="contentView" id="57T-Sa-117">
                 <rect key="frame" x="0.0" y="0.0" width="250" height="335"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -96,7 +99,7 @@ https://github.com/CoordinatedHackers</string>
                     </button>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwC-kJ-YYs">
                         <rect key="frame" x="18" y="215" width="214" height="19"/>
-                        <sliderCell key="cell" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="Ce4-Dq-PJb">
+                        <sliderCell key="cell" alignment="left" maxValue="4095" tickMarkPosition="above" sliderType="linear" id="Ce4-Dq-PJb">
                             <connections>
                                 <action selector="lowLightSettingsSliderAdjusted:" target="Voe-Tx-rLC" id="Bl9-nj-tL7"/>
                             </connections>
@@ -104,7 +107,7 @@ https://github.com/CoordinatedHackers</string>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-dX-yeQ">
                         <rect key="frame" x="18" y="161" width="214" height="19"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="above" sliderType="linear" id="z7g-Eo-KC3">
+                        <sliderCell key="cell" state="on" alignment="left" maxValue="4095" doubleValue="4095" tickMarkPosition="above" sliderType="linear" id="z7g-Eo-KC3">
                             <connections>
                                 <action selector="highLightSettingsSliderAdjusted:" target="Voe-Tx-rLC" id="lrL-c2-5TY"/>
                             </connections>
@@ -133,7 +136,7 @@ https://github.com/CoordinatedHackers</string>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-e4-6Mi">
-                        <rect key="frame" x="0.0" y="259" width="250" height="5"/>
+                        <rect key="frame" x="0.0" y="259" width="250" height="43"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
