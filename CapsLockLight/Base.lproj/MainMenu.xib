@@ -28,9 +28,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="340" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G8A-wk-6pE">
-                        <rect key="frame" x="38" y="24" width="265" height="153"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" placeholderString="SuperCapsLock version 0.1" id="vHB-ni-Ewz">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JX2-n4-rsA">
+                        <rect key="frame" x="18" y="19" width="304" height="162"/>
+                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" id="FIw-VV-xvh">
                             <font key="font" metaFont="system"/>
                             <string key="title">SuperCapsLock version 1.0
 © Superpanic 2016
@@ -47,7 +47,7 @@ https://github.com/CoordinatedHackers</string>
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="363" y="95"/>
+            <point key="canvasLocation" x="528" y="-74"/>
         </window>
         <menu id="TJb-2T-EFR">
             <items>
@@ -78,13 +78,104 @@ https://github.com/CoordinatedHackers</string>
         </menu>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="8wf-r5-bKe">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
+            <rect key="contentRect" x="196" y="240" width="250" height="335"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" id="57T-Sa-117">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="335"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-ly-twt">
+                        <rect key="frame" x="18" y="119" width="155" height="18"/>
+                        <buttonCell key="cell" type="check" title="Activate with shift key" bezelStyle="regularSquare" imagePosition="left" inset="2" id="822-6a-EDX">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="shiftIsActiveSettingsClicked:" target="Voe-Tx-rLC" id="7PT-hc-cIJ"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwC-kJ-YYs">
+                        <rect key="frame" x="18" y="215" width="214" height="19"/>
+                        <sliderCell key="cell" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="Ce4-Dq-PJb">
+                            <connections>
+                                <action selector="lowLightSettingsSliderAdjusted:" target="Voe-Tx-rLC" id="Bl9-nj-tL7"/>
+                            </connections>
+                        </sliderCell>
+                    </slider>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-dX-yeQ">
+                        <rect key="frame" x="18" y="161" width="214" height="19"/>
+                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="above" sliderType="linear" id="z7g-Eo-KC3">
+                            <connections>
+                                <action selector="highLightSettingsSliderAdjusted:" target="Voe-Tx-rLC" id="lrL-c2-5TY"/>
+                            </connections>
+                        </sliderCell>
+                    </slider>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Bw-34-c7H">
+                        <rect key="frame" x="18" y="181" width="104" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Caps Lock On" id="YUw-uK-bdD">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SH9-96-2Gj">
+                        <rect key="frame" x="18" y="237" width="114" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Caps Lock off" id="bee-W7-uEG">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="JLm-xB-yw1">
+                        <rect key="frame" x="0.0" y="204" width="250" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-e4-6Mi">
+                        <rect key="frame" x="0.0" y="259" width="250" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="i8I-PO-v4M">
+                        <rect key="frame" x="0.0" y="151" width="250" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-GN-Apj">
+                        <rect key="frame" x="0.0" y="102" width="250" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-Sx-OBT">
+                        <rect key="frame" x="18" y="8" width="214" height="60"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Automatically launch the SuperCapsLock utility everytime your computer starts up." id="AI0-f1-hJM">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-59-Urk">
+                        <rect key="frame" x="18" y="74" width="115" height="18"/>
+                        <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1af-KF-YDa">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-DJ-8a1">
+                        <rect key="frame" x="18" y="264" width="214" height="60"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Use sliders to set the brightness of your keyboard for both Caps Lock states." id="KrT-aW-I7d">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
             </view>
-            <point key="canvasLocation" x="376" y="425"/>
+            <point key="canvasLocation" x="391" y="308.5"/>
         </window>
     </objects>
 </document>

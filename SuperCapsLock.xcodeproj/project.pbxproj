@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35D2C3E71D81BD0B00E84E39 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 35D2C3E61D81BD0B00E84E39 /* README.md */; };
 		35E5CF2C1D74BBE100B52EF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */; };
 		35E5CF2E1D74BBE100B52EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */; };
 		35E5CF311D74BBE100B52EF3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2F1D74BBE100B52EF3 /* MainMenu.xib */; };
@@ -136,7 +135,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35D2C3E71D81BD0B00E84E39 /* README.md in Sources */,
 				35E5CF391D74BC3C00B52EF3 /* KeyboardBacklight.swift in Sources */,
 				35E5CF2C1D74BBE100B52EF3 /* AppDelegate.swift in Sources */,
 			);
