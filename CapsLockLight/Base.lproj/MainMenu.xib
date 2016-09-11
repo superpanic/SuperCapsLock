@@ -136,7 +136,7 @@ https://github.com/CoordinatedHackers</string>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-e4-6Mi">
-                        <rect key="frame" x="0.0" y="259" width="250" height="43"/>
+                        <rect key="frame" x="0.0" y="241" width="250" height="43"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
