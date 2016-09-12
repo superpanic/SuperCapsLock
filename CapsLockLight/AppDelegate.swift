@@ -151,7 +151,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	@IBAction func highLightSettingsSliderAdjusted(sender: AnyObject) {
 		print("High light settings slider adjusted")
-		let highLightValNum: AnyObject = Int(lowLightSettingsSlider.integerValue) as NSNumber
+		let highLightValNum: AnyObject = Int(highLightSettingsSlider.integerValue) as NSNumber
 		defaults.setObject(highLightValNum, forKey: "highLightVal")
 		highLightVal = highLightValNum.integerValue
 		if( isCapsLockOn() == true ) { activateCapsLock() }
