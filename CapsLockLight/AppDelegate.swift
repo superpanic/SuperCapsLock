@@ -91,7 +91,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		defBool = defaults.objectForKey("shiftIsActive")
 		// defBool = nil
 
-		
 		print("shiftIsActive: \(defBool?.boolValue)")
 		if (defBool != nil) {
 			shiftIsActive = defBool!.boolValue
@@ -159,6 +158,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	@IBAction func shiftIsActiveSettingsClicked(sender: AnyObject) {
 		print("Shift is active settings clicked")
+		let shiftIsActiveSettingsCheckBoxNum: AnyObject = Int(shiftIsActiveSettingsCheckBox.state) as NSNumber
+		defaults.setObject(shiftIsActiveSettingsCheckBoxNum, forKey: "shiftIsActive")
+		shiftIsActive = (shiftIsActiveSettingsCheckBox.state > 0)
 	}
 
 	func isCapsLockOn() -> Bool {
