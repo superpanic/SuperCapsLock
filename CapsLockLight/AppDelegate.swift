@@ -8,6 +8,7 @@
 
 import Cocoa
 import Carbon
+import CoreServices
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -185,9 +186,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func capsLockOnEventLocal(event: NSEvent)->NSEvent {
 			// is the keyboard event a Caps Lock event (Caps Lock is keyCode 57)
 		if(event.keyCode == UInt16(kVK_CapsLock)) {
-			// check if Caps Lock is turned on
-			if event.modifierFlags.contains(.AlphaShiftKeyMask)	{ activateCapsLock() }
-			else							{ deactivateCapsLock() }
+				// check if CAPS LOCK is turned on
+			if event.modifierFlags.contains(.AlphaShiftKeyMask)		{ activateCapsLock() }
+				// only deactivate keyboard light of caps lock is off
+			else								{ deactivateCapsLock() }
+		}
+			// check if SHIFT key is pressed
+		if(shiftIsActive && event.keyCode == UInt16(kVK_Shift)) {
+				// check if SHIFT is turned on
+			if event.modifierFlags.contains(.ShiftKeyMask)			{ activateCapsLock() }
+				// only deactivate keyboard light of CAPS LOCK is off
+			else if !(event.modifierFlags.contains(.AlphaShiftKeyMask))	{ deactivateCapsLock() }
 		}
 		return event
 	}
@@ -196,10 +205,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			// is the keyboard event a Caps Lock event (Caps Lock is keyCode 57)
 		if(event.keyCode == UInt16(kVK_CapsLock)) {
 			// check if Caps Lock is turned on
-			if event.modifierFlags.contains(.AlphaShiftKeyMask)	{ activateCapsLock() }
-			else							{ deactivateCapsLock() }
+			if event.modifierFlags.contains(.AlphaShiftKeyMask)		{ activateCapsLock() }
+			else								{ deactivateCapsLock() }
 		}
-		
+			// shift key
+		if(shiftIsActive && event.keyCode == UInt16(kVK_Shift)) {
+			if event.modifierFlags.contains(.ShiftKeyMask)			{ activateCapsLock() }
+			else if !(event.modifierFlags.contains(.AlphaShiftKeyMask))	{ deactivateCapsLock() }
+		}
 	}
 
 	func acquirePrivileges() -> Bool {

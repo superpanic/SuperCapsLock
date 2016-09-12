@@ -26,7 +26,7 @@
         <window title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="794" y="619" width="340" height="200"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="340" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -54,16 +54,13 @@ https://github.com/CoordinatedHackers</string>
         </window>
         <menu id="TJb-2T-EFR">
             <items>
-                <menuItem title="Caps lock state" tag="1" enabled="NO" id="dAT-zE-csu">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
                 <menuItem title="About" tag="2" id="zDW-BL-tu3">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openAboutWindow:" target="Voe-Tx-rLC" id="7rc-id-gRq"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Settings" tag="4" id="1E8-oc-GjU">
+                <menuItem title="Settings..." tag="4" id="1E8-oc-GjU">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openSettingsWindow:" target="Voe-Tx-rLC" id="le8-8h-SPU"/>
@@ -76,8 +73,12 @@ https://github.com/CoordinatedHackers</string>
                         <action selector="quit:" target="Voe-Tx-rLC" id="aCb-Ne-I6d"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="Iym-8z-MHc"/>
+                <menuItem title="Caps lock state" tag="1" enabled="NO" id="dAT-zE-csu">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
             </items>
-            <point key="canvasLocation" x="239.5" y="-127.5"/>
+            <point key="canvasLocation" x="239" y="-127.5"/>
         </menu>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="8wf-r5-bKe">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
@@ -88,7 +89,7 @@ https://github.com/CoordinatedHackers</string>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-ly-twt">
-                        <rect key="frame" x="18" y="119" width="155" height="18"/>
+                        <rect key="frame" x="18" y="120" width="155" height="18"/>
                         <buttonCell key="cell" type="check" title="Activate with shift key" bezelStyle="regularSquare" imagePosition="left" inset="2" id="822-6a-EDX">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -136,7 +137,7 @@ https://github.com/CoordinatedHackers</string>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-e4-6Mi">
-                        <rect key="frame" x="0.0" y="241" width="250" height="43"/>
+                        <rect key="frame" x="0.0" y="260" width="250" height="5"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
@@ -155,7 +156,7 @@ https://github.com/CoordinatedHackers</string>
                     </box>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-Sx-OBT">
                         <rect key="frame" x="18" y="8" width="214" height="60"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Automatically launch the SuperCapsLock utility everytime your computer starts up." id="AI0-f1-hJM">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Automatically launch the SuperCapsLock utility when your computer starts up." id="AI0-f1-hJM">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -169,8 +170,8 @@ https://github.com/CoordinatedHackers</string>
                         </buttonCell>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-DJ-8a1">
-                        <rect key="frame" x="18" y="264" width="214" height="60"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Use sliders to set the brightness of your keyboard for both Caps Lock states." id="KrT-aW-I7d">
+                        <rect key="frame" x="18" y="265" width="214" height="60"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Use sliders to set the brightness of your keyboard for Caps Lock on and off states." id="KrT-aW-I7d">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
