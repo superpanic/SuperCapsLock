@@ -110,7 +110,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 			// setup the menu icon
 		button = statusItem.button
-		button.image = NSImage(named: "StatusItemIconBlk")
+		button.image = NSImage(named: "StatusItemIconOff")
+		button.alternateImage = NSImage(named: "StatusItemIconOn")
 		
 			// set the status menu
 		statusItem.menu = menu
@@ -171,6 +172,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func activateCapsLock() {
 		button.highlighted = true
+		//button.state = NSOnState
 		menu.itemWithTag(menuTags.SUPERCAPSLOCK.rawValue)?.setTitleWithMnemonic("CAPS LOCK ON&")
 		print("highLightval: \(highLightVal)")
 		keyboard_light.set(UInt64(highLightVal))
@@ -178,6 +180,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func deactivateCapsLock() {
 		button.highlighted = false
+		//button.state = NSOffState
 		menu.itemWithTag(menuTags.SUPERCAPSLOCK.rawValue)?.setTitleWithMnemonic("Caps lock off&")
 		print("lowLightVal: \(lowLightVal)")
 		keyboard_light.set(UInt64(lowLightVal))
