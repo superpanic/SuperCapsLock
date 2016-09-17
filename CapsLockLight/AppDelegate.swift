@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var lowLightSettingsSlider: NSSliderCell!
 	@IBOutlet weak var highLightSettingsSlider: NSSliderCell!
 	@IBOutlet weak var shiftIsActiveSettingsCheckBox: NSButtonCell!
-	
+	@IBOutlet weak var launchAtLoginSettingsCheckBox: NSButton!
 	
 		// the status menu item
 	let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSSquareStatusItemLength)
@@ -160,9 +160,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	@IBAction func shiftIsActiveSettingsClicked(sender: AnyObject) {
 		print("Shift is active settings clicked")
-		let shiftIsActiveSettingsCheckBoxNum: AnyObject = Int(shiftIsActiveSettingsCheckBox.state) as NSNumber
-		defaults.setObject(shiftIsActiveSettingsCheckBoxNum, forKey: "shiftIsActive")
+		let checkBoxState: AnyObject = Int(shiftIsActiveSettingsCheckBox.state) as NSNumber
+		defaults.setObject(checkBoxState, forKey: "shiftIsActive")
 		shiftIsActive = (shiftIsActiveSettingsCheckBox.state > 0)
+	}
+	
+	@IBAction func launchAtLoginSettingsClicked(sender: AnyObject) {
+		print("Launch at login settings clicked")
+		let checkBoxState: AnyObject = Int(launchAtLoginSettingsCheckBox.state) as NSNumber
+		if(checkBoxState.intValue > 0) { print("launchAtLogin: ON") }
+		else { print("launchAtLogin: OFF") }
 	}
 
 	func isCapsLockOn() -> Bool {
