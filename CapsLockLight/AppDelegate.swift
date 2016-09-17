@@ -45,24 +45,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var highLightVal: Int = 0xfff
 	var lowLightVal: Int = 0x0
 	var shiftIsActive: Bool = false
+	var launchAtLogin: Bool = false
 
 		// read user settings
 	let defaults = NSUserDefaults.standardUserDefaults()
+	
+	// launch at startup
+	let launcherAppIdentifier = "com.superpanic.LauncherApplication"
 	
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
 		
 			// user needs to set accessability privileges for this app
 		acquirePrivileges()
 		
+				
 		
-		
-		
-			// launch at startup
-		let launcherAppIdentifier = "com.superpanic.LauncherApplication"
-		
-		// you should move this next line to somehwre else, this is for testing purposes only!
-		SMLoginItemSetEnabled(launcherAppIdentifier, true)
-		
+			// find out if launcherApp is running?
 		var startedAtLogin = false
 		for app in NSWorkspace.sharedWorkspace().runningApplications {
 			if app.bundleIdentifier == launcherAppIdentifier {
@@ -78,8 +76,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		
 		
-		
-		
 			/* user defaults */
 		
 		print("User defaults: \(Array(defaults.dictionaryRepresentation().keys).count)")
@@ -90,20 +86,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		print("User defaults: \(Array(defaults.dictionaryRepresentation().keys).count)")
 		
-			// read settings for high and low light
+		
+			// read settings
 		var defInt : AnyObject?
+		
+			// low light setting
 		defInt = defaults.objectForKey("lowLightVal")
-		
-		//	let aoInt: AnyObject = Int(1) as NSNumber
-		
-		print("defInt: \(defInt?.integerValue)")
 		if (defInt != nil) {
 			lowLightVal = defInt!.integerValue
 			lowLightSettingsSlider.integerValue = lowLightVal
 		}
-		
+			// high light setting
 		defInt = defaults.objectForKey("highLightVal")
-
 		print("defInt: \(defInt?.integerValue)")
 		if (defInt != nil) {
 			highLightVal = defInt!.integerValue
@@ -112,10 +106,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 			// read settings for active shift key
 		var defBool : AnyObject?
-		defBool = defaults.objectForKey("shiftIsActive")
-		// defBool = nil
 
-		print("shiftIsActive: \(defBool?.boolValue)")
+		defBool = defaults.objectForKey("shiftIsActive")
 		if (defBool != nil) {
 			shiftIsActive = defBool!.boolValue
 			if(shiftIsActive) {
@@ -125,6 +117,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			}
 		}
 		
+			// read settings for start at login
+		defBool = defaults.objectForKey("launchAtLogin")
+		if (defBool != nil) {
+			launchAtLogin = defBool!.boolValue
+			if(launchAtLogin) {
+				launchAtLoginCheckBox.state = NSOnState
+				SMLoginItemSetEnabled(launcherAppIdentifier, true)
+			} else {
+				launchAtLoginCheckBox.state = NSOffState
+				SMLoginItemSetEnabled(launcherAppIdentifier, false)
+			}
+		}
 		
 		
 		
@@ -165,6 +169,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		NSApp.activateIgnoringOtherApps(true)
 	}
 	
+	
+	
+	
+	
+		// settings actions
+	
 	@IBAction func lowLightSettingsSliderAdjusted(sender: AnyObject) {
 		print("Low light settings slider adjusted")
 		let lowLightValNum: AnyObject = Int(lowLightSettingsSlider.integerValue) as NSNumber
@@ -183,17 +193,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	@IBAction func shiftIsActiveSettingsClicked(sender: AnyObject) {
 		print("Shift is active settings clicked")
-		let shiftIsActiveSettingsCheckBoxNum: AnyObject = Int(shiftIsActiveSettingsCheckBox.state) as NSNumber
-		defaults.setObject(shiftIsActiveSettingsCheckBoxNum, forKey: "shiftIsActive")
+		let checkBoxState: AnyObject = Int(shiftIsActiveSettingsCheckBox.state) as NSNumber
+		defaults.setObject(checkBoxState, forKey: "shiftIsActive")
 		shiftIsActive = (shiftIsActiveSettingsCheckBox.state > 0)
 	}
 
-	
-	
-	
 	@IBAction func launchAtLoginCheckBoxClicked(sender: AnyObject) {
 		print("Launch at login checked")
+		let checkBoxState: AnyObject = Int(launchAtLoginCheckBox.state) as NSNumber
+		defaults.setObject(checkBoxState, forKey: "launchAtLogin")
+		launchAtLogin = (launchAtLoginCheckBox.state > 0)
+		if launchAtLogin {
+			print("Adding login item")
+			SMLoginItemSetEnabled(launcherAppIdentifier, true)
+		} else {
+			print("Removing login item")
+			SMLoginItemSetEnabled(launcherAppIdentifier, false)
+		}
+
 	}
+	
+	
 	
 	
 	

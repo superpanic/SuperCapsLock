@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,10 +16,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
 		
 		let mainAppIdentifier = "com.superpanic.SuperCapsLock"
+		
 		let running = NSWorkspace.sharedWorkspace().runningApplications
 		var alreadyRunning = false
 		
 		for app in running {
+			print(app)
 			if app.bundleIdentifier == mainAppIdentifier {
 				alreadyRunning = true
 				break
@@ -29,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: "terminate", name: "killme", object: mainAppIdentifier)
 			let path = NSBundle.mainBundle().bundlePath as NSString
 			var components = path.pathComponents
+			print(components)
 			components.removeLast()
 			components.removeLast()
 			components.removeLast()
