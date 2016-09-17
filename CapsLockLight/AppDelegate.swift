@@ -9,6 +9,7 @@
 import Cocoa
 import Carbon
 import CoreServices
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var lowLightSettingsSlider: NSSliderCell!
 	@IBOutlet weak var highLightSettingsSlider: NSSliderCell!
 	@IBOutlet weak var shiftIsActiveSettingsCheckBox: NSButtonCell!
-	
+	@IBOutlet weak var launchAtLoginCheckBox: NSButton!
 	
 		// the status menu item
 	let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSSquareStatusItemLength)
@@ -52,6 +53,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 			// user needs to set accessability privileges for this app
 		acquirePrivileges()
+		
+		
+		
+		
+			// launch at startup
+		let launcherAppIdentifier = "com.superpanic.LauncherApplication"
+		
+		// you should move this next line to somehwre else, this is for testing purposes only!
+		SMLoginItemSetEnabled(launcherAppIdentifier, true)
+		
+		var startedAtLogin = false
+		for app in NSWorkspace.sharedWorkspace().runningApplications {
+			if app.bundleIdentifier == launcherAppIdentifier {
+				startedAtLogin = true
+			}
+		}
+
+		if startedAtLogin {
+			NSDistributedNotificationCenter.defaultCenter().postNotificationName("killme", object: NSBundle.mainBundle().bundleIdentifier!)
+			print("Trying to kill the launcher app")
+		}
+		
 		
 		
 		
@@ -165,6 +188,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		shiftIsActive = (shiftIsActiveSettingsCheckBox.state > 0)
 	}
 
+	
+	
+	
+	@IBAction func launchAtLoginCheckBoxClicked(sender: AnyObject) {
+		print("Launch at login checked")
+	}
+	
+	
+	
 	func isCapsLockOn() -> Bool {
 		let eventModifier: UInt32 = GetCurrentKeyModifiers()
 		return eventModifier == 1024

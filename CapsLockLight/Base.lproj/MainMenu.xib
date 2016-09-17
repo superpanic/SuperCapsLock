@@ -15,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SuperCapsLock" customModuleProvider="target">
             <connections>
                 <outlet property="highLightSettingsSlider" destination="z7g-Eo-KC3" id="saD-UR-d2e"/>
+                <outlet property="launchAtLoginCheckBox" destination="QAx-59-Urk" id="uLy-Ks-6th"/>
                 <outlet property="lowLightSettingsSlider" destination="Ce4-Dq-PJb" id="6nM-hM-LwP"/>
                 <outlet property="menu" destination="TJb-2T-EFR" id="KXV-nb-OLe"/>
                 <outlet property="settingsWindow" destination="8wf-r5-bKe" id="ORl-q0-2uR"/>
@@ -158,10 +159,13 @@ https://github.com/CoordinatedHackers</string>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-59-Urk">
                         <rect key="frame" x="18" y="74" width="115" height="18"/>
-                        <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1af-KF-YDa">
+                        <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1af-KF-YDa">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="launchAtLoginCheckBoxClicked:" target="Voe-Tx-rLC" id="7nm-Kj-xe5"/>
+                        </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-DJ-8a1">
                         <rect key="frame" x="18" y="262" width="214" height="60"/>
