@@ -11,3 +11,4 @@
 
 ## References
 * Tutorial on how to implement launch at login: https://theswiftdev.com/2015/09/17/first-os-x-tutorial-how-to-launch-an-os-x-app-at-login/
+* How to work around sandbox: http://stackoverflow.com/questions/23244349/iokit-not-permitted-in-sandbox/38956959#38956959
