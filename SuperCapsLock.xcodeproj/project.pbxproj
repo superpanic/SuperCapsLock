@@ -11,7 +11,26 @@
 		35E5CF2E1D74BBE100B52EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */; };
 		35E5CF311D74BBE100B52EF3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E5CF2F1D74BBE100B52EF3 /* MainMenu.xib */; };
 		35E5CF391D74BC3C00B52EF3 /* KeyboardBacklight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E5CF381D74BC3C00B52EF3 /* KeyboardBacklight.swift */; };
+		35FC3B441D906E3C003869A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3B431D906E3C003869A2 /* AppDelegate.swift */; };
+		35FC3B461D906E3C003869A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3B451D906E3C003869A2 /* Assets.xcassets */; };
+		35FC3B491D906E3C003869A2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3B471D906E3C003869A2 /* MainMenu.xib */; };
+		35FC3B511D906FFE003869A2 /* SuperCapsLockStarter.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35FC3B411D906E3C003869A2 /* SuperCapsLockStarter.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		35FC3B531D907061003869A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FC3B521D907061003869A2 /* Cocoa.framework */; };
+		35FC3B551D90706B003869A2 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FC3B541D90706B003869A2 /* ServiceManagement.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		35FC3B501D906FDA003869A2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				35FC3B511D906FFE003869A2 /* SuperCapsLockStarter.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		35D2C3E61D81BD0B00E84E39 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -21,10 +40,28 @@
 		35E5CF301D74BBE100B52EF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		35E5CF321D74BBE100B52EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35E5CF381D74BC3C00B52EF3 /* KeyboardBacklight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBacklight.swift; sourceTree = "<group>"; };
+		35FC3B411D906E3C003869A2 /* SuperCapsLockStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperCapsLockStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35FC3B431D906E3C003869A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		35FC3B451D906E3C003869A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35FC3B481D906E3C003869A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		35FC3B4A1D906E3C003869A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35FC3B4E1D906F3D003869A2 /* SuperCapsLock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SuperCapsLock.entitlements; sourceTree = SOURCE_ROOT; };
+		35FC3B4F1D906F40003869A2 /* SuperCapsLockStarter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SuperCapsLockStarter.entitlements; sourceTree = "<group>"; };
+		35FC3B521D907061003869A2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		35FC3B541D90706B003869A2 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		35E5CF251D74BBE100B52EF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3B551D90706B003869A2 /* ServiceManagement.framework in Frameworks */,
+				35FC3B531D907061003869A2 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3B3E1D906E3C003869A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,8 +74,11 @@
 		35E5CF1F1D74BBE100B52EF3 = {
 			isa = PBXGroup;
 			children = (
+				35FC3B541D90706B003869A2 /* ServiceManagement.framework */,
+				35FC3B521D907061003869A2 /* Cocoa.framework */,
 				35D2C3E61D81BD0B00E84E39 /* README.md */,
 				35E5CF2A1D74BBE100B52EF3 /* SuperCapsLock */,
+				35FC3B421D906E3C003869A2 /* SuperCapsLockStarter */,
 				35E5CF291D74BBE100B52EF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				35E5CF281D74BBE100B52EF3 /* SuperCapsLock.app */,
+				35FC3B411D906E3C003869A2 /* SuperCapsLockStarter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +95,7 @@
 		35E5CF2A1D74BBE100B52EF3 /* SuperCapsLock */ = {
 			isa = PBXGroup;
 			children = (
+				35FC3B4E1D906F3D003869A2 /* SuperCapsLock.entitlements */,
 				35E5CF2B1D74BBE100B52EF3 /* AppDelegate.swift */,
 				35E5CF381D74BC3C00B52EF3 /* KeyboardBacklight.swift */,
 				35E5CF2D1D74BBE100B52EF3 /* Assets.xcassets */,
@@ -62,6 +104,18 @@
 			);
 			name = SuperCapsLock;
 			path = CapsLockLight;
+			sourceTree = "<group>";
+		};
+		35FC3B421D906E3C003869A2 /* SuperCapsLockStarter */ = {
+			isa = PBXGroup;
+			children = (
+				35FC3B4F1D906F40003869A2 /* SuperCapsLockStarter.entitlements */,
+				35FC3B431D906E3C003869A2 /* AppDelegate.swift */,
+				35FC3B451D906E3C003869A2 /* Assets.xcassets */,
+				35FC3B471D906E3C003869A2 /* MainMenu.xib */,
+				35FC3B4A1D906E3C003869A2 /* Info.plist */,
+			);
+			path = SuperCapsLockStarter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +128,7 @@
 				35E5CF241D74BBE100B52EF3 /* Sources */,
 				35E5CF251D74BBE100B52EF3 /* Frameworks */,
 				35E5CF261D74BBE100B52EF3 /* Resources */,
+				35FC3B501D906FDA003869A2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -82,6 +137,23 @@
 			name = SuperCapsLock;
 			productName = CapsLockLight;
 			productReference = 35E5CF281D74BBE100B52EF3 /* SuperCapsLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		35FC3B401D906E3C003869A2 /* SuperCapsLockStarter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35FC3B4D1D906E3C003869A2 /* Build configuration list for PBXNativeTarget "SuperCapsLockStarter" */;
+			buildPhases = (
+				35FC3B3D1D906E3C003869A2 /* Sources */,
+				35FC3B3E1D906E3C003869A2 /* Frameworks */,
+				35FC3B3F1D906E3C003869A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SuperCapsLockStarter;
+			productName = SuperCapsLockStarter;
+			productReference = 35FC3B411D906E3C003869A2 /* SuperCapsLockStarter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -97,6 +169,20 @@
 					35E5CF271D74BBE100B52EF3 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5R7N236Z28;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					35FC3B401D906E3C003869A2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5R7N236Z28;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -114,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				35E5CF271D74BBE100B52EF3 /* SuperCapsLock */,
+				35FC3B401D906E3C003869A2 /* SuperCapsLockStarter */,
 			);
 		};
 /* End PBXProject section */
@@ -125,6 +212,15 @@
 			files = (
 				35E5CF2E1D74BBE100B52EF3 /* Assets.xcassets in Resources */,
 				35E5CF311D74BBE100B52EF3 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35FC3B3F1D906E3C003869A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3B461D906E3C003869A2 /* Assets.xcassets in Resources */,
+				35FC3B491D906E3C003869A2 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +236,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35FC3B3D1D906E3C003869A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35FC3B441D906E3C003869A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -147,6 +251,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				35E5CF301D74BBE100B52EF3 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		35FC3B471D906E3C003869A2 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35FC3B481D906E3C003869A2 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -240,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SuperCapsLock.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CapsLockLight/Info.plist;
@@ -253,12 +366,45 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SuperCapsLock.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CapsLockLight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.SuperCapsLock;
 				PRODUCT_NAME = SuperCapsLock;
+			};
+			name = Release;
+		};
+		35FC3B4B1D906E3C003869A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SuperCapsLockStarter/SuperCapsLockStarter.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SuperCapsLockStarter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.SuperCapsLockStarter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		35FC3B4C1D906E3C003869A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SuperCapsLockStarter/SuperCapsLockStarter.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SuperCapsLockStarter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.superpanic.SuperCapsLockStarter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -282,6 +428,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		35FC3B4D1D906E3C003869A2 /* Build configuration list for PBXNativeTarget "SuperCapsLockStarter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35FC3B4B1D906E3C003869A2 /* Debug */,
+				35FC3B4C1D906E3C003869A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,6 +9,7 @@
 import Cocoa
 import Carbon
 import CoreServices
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -52,6 +53,78 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 			// user needs to set accessability privileges for this app
 		acquirePrivileges()
+		
+		
+		
+		
+			/* launch at login */
+		let launcherAppIdentifier = "com.superpanic.SuperCapsLockStarter"
+		
+		let helperURL: NSURL = NSBundle.mainBundle().bundleURL.URLByAppendingPathComponent("Contents/Library/LoginItems/SuperCapsLockStarter.app")
+		print(helperURL)
+		
+		let LSRegisterResult = LSRegisterURL(helperURL, true)
+		print("LSRegisterResult: \(LSRegisterResult)")
+		NSLog("LSRegisterResult: \(LSRegisterResult)")
+		
+		/*
+		print(kLSAppInTrashErr)
+//		The application cannot be run because it is inside a Trash folder.
+		print(kLSUnknownErr)
+//		An unknown error has occurred.
+		print(kLSNotAnApplicationErr)
+//		The item to be registered is not an application.
+		print(kLSNotInitializedErr)
+//		Formerly returned by LSInit on initialization failure; no longer used.
+		print(kLSDataUnavailableErr)
+//		Data of the desired type is not available (for example, there is no kind string).
+		print(kLSApplicationNotFoundErr)
+//		No application in the Launch Services database matches the input criteria.
+		print(kLSUnknownTypeErr)
+//		Not currently used.
+		print(kLSDataTooOldErr)
+//		Not currently used.
+		print(kLSDataErr)
+//		Data is structured improperly (for example, an item’s information property list is malformed). Not used in macOS 10.4.
+		print(kLSLaunchInProgressErr)
+//		A launch of the application is already in progress.
+		print("kLSNotRegisteredErr \(kLSNotRegisteredErr)")
+//		Not currently used.
+		print(kLSAppDoesNotClaimTypeErr)
+//		Not currently used.
+		print(kLSAppDoesNotSupportSchemeWarning)
+//		Not currently used.
+		print(kLSServerCommunicationErr)
+//		There is a problem communicating with the server process that maintains the Launch Services database.
+		print(kLSCannotSetInfoErr)
+//		The filename extension to be hidden cannot be hidden.
+		print(kLSNoRegistrationInfoErr)
+//		Not currently used.
+		print(kLSIncompatibleSystemVersionErr)
+//		The application to be launched cannot run on the current Mac OS version.
+		print(kLSNoLaunchPermissionErr)
+//		The user does not have permission to launch the application (on a managed network).
+		print(kLSNoExecutableErr)
+//		The executable file is missing or has an unusable format.
+		print(kLSNoClassicEnvironmentErr)
+//		The Classic emulation environment was required but is not available.
+		print(kLSMultipleSessionsNotSupportedErr)
+//		The application to be launched cannot run simultaneously in two different user sessions.
+		*/
+		
+		let loginItemEnabled: Bool = SMLoginItemSetEnabled(launcherAppIdentifier, true)
+		print("loginItemEnabled: \(loginItemEnabled)")
+		
+		var startedAtLogin = false
+		for app in NSWorkspace.sharedWorkspace().runningApplications {
+			if app.bundleIdentifier == launcherAppIdentifier {
+				startedAtLogin = true
+			}
+		}
+		
+		if startedAtLogin {
+			NSDistributedNotificationCenter.defaultCenter().postNotificationName("killme", object: NSBundle.mainBundle().bundleIdentifier!)
+		}
 		
 		
 		

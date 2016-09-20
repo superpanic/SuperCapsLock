@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SuperCapsLockStarter.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>35E5CF271D74BBE100B52EF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>35FC3B401D906E3C003869A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
