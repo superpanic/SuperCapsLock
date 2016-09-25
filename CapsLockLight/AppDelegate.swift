@@ -41,9 +41,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		// keyboard light controller
 	let keyboard_light = KeyboardBacklight()
 	
+		// loginItemsManager
+	let loginItemsManager = LoginItemsManager()
+	
 	var highLightVal: Int = 0xfff
 	var lowLightVal: Int = 0x0
 	var shiftIsActive: Bool = false
+	var launchAtLogin: Bool = false
 
 		// read user settings
 	let defaults = NSUserDefaults.standardUserDefaults()
@@ -51,9 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
 		
 			// user needs to set accessability privileges for this app
-		acquirePrivileges()
-		
-		
+		assert(acquirePrivileges())
 		
 		
 		
@@ -62,16 +64,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		print("User defaults: \(Array(defaults.dictionaryRepresentation().keys).count)")
 		
 			// remove all user defaults
-		// let appDomain = NSBundle.mainBundle().bundleIdentifier!
-		// defaults.removePersistentDomainForName(appDomain)
+//		let appDomain = NSBundle.mainBundle().bundleIdentifier!
+//		defaults.removePersistentDomainForName(appDomain)
+		
 
 		print("User defaults: \(Array(defaults.dictionaryRepresentation().keys).count)")
 		
 			// read settings for high and low light
 		var defInt : AnyObject?
 		defInt = defaults.objectForKey("lowLightVal")
-		
-		//	let aoInt: AnyObject = Int(1) as NSNumber
 		
 		print("defInt: \(defInt?.integerValue)")
 		if (defInt != nil) {
@@ -90,7 +91,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			// read settings for active shift key
 		var defBool : AnyObject?
 		defBool = defaults.objectForKey("shiftIsActive")
-		// defBool = nil
 
 		print("shiftIsActive: \(defBool?.boolValue)")
 		if (defBool != nil) {
@@ -102,12 +102,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			}
 		}
 		
+			// read settings for start at login
+		defBool = defaults.objectForKey("launchAtLogin")
+		print("startAtLogin: \(defBool?.launchAtLogin)")
+		if (defBool != nil) {
+			launchAtLogin = defBool!.boolValue
+			if(launchAtLogin) {
+				launchAtLoginSettingsCheckBox.state = NSOnState
+				if !loginItemsManager.startAtLogin { loginItemsManager.toggleStartAtLogin() }
+			} else {
+				launchAtLoginSettingsCheckBox.state = NSOffState
+				if loginItemsManager.startAtLogin { loginItemsManager.toggleStartAtLogin() }
+			}
+		}
 		
 		
-		
-		
-		
-		
+		/*
+if(loginItemsManager.startAtLogin) {
+loginItemsManager.toggleStartAtLogin()
+}
+*/
+
+
 			// setup the menu icon
 		button = statusItem.button
 		button.image = NSImage(named: "StatusItemIconOff")
@@ -168,8 +184,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBAction func launchAtLoginSettingsClicked(sender: AnyObject) {
 		print("Launch at login settings clicked")
 		let checkBoxState: AnyObject = Int(launchAtLoginSettingsCheckBox.state) as NSNumber
-		if(checkBoxState.intValue > 0) { print("launchAtLogin: ON") }
-		else { print("launchAtLogin: OFF") }
+		defaults.setObject(checkBoxState, forKey: "launchAtLogin")
+		if(checkBoxState.intValue > 0) {
+				// turn on
+			if !loginItemsManager.startAtLogin { loginItemsManager.toggleStartAtLogin() }
+		} else {
+				// turn off
+			if loginItemsManager.startAtLogin { loginItemsManager.toggleStartAtLogin() }
+		}
 	}
 
 	func isCapsLockOn() -> Bool {
