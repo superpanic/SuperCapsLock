@@ -121,8 +121,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		else			{ deactivateCapsLock() }
 		
 			// set up listeners for local and global keyboard events
-		NSEvent.addLocalMonitorForEventsMatchingMask(  NSEventMask.FlagsChangedMask, handler: capsLockOnEventLocal )
-		NSEvent.addGlobalMonitorForEventsMatchingMask( NSEventMask.FlagsChangedMask, handler: capsLockOnEventGlobal )
+		NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMask.FlagsChanged, handler: capsLockOnEventLocal )
+		NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.FlagsChanged, handler: capsLockOnEventGlobal )
 	}
 
 	@IBAction func openAboutWindow(sender: AnyObject) {
@@ -197,16 +197,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			// is the keyboard event a Caps Lock event (Caps Lock is keyCode 57)
 		if(event.keyCode == UInt16(kVK_CapsLock)) {
 				// check if CAPS LOCK is turned on
-			if event.modifierFlags.contains(.AlphaShiftKeyMask)		{ activateCapsLock() }
+			if event.modifierFlags.contains(.CapsLock)		{ activateCapsLock() }
 				// only deactivate keyboard light of caps lock is off
 			else								{ deactivateCapsLock() }
 		}
 			// check if SHIFT key is pressed
 		if(shiftIsActive && event.keyCode == UInt16(kVK_Shift)) {
 				// check if SHIFT is turned on
-			if event.modifierFlags.contains(.ShiftKeyMask)			{ activateCapsLock() }
+			if event.modifierFlags.contains(.Shift)			{ activateCapsLock() }
 				// only deactivate keyboard light of CAPS LOCK is off
-			else if !(event.modifierFlags.contains(.AlphaShiftKeyMask))	{ deactivateCapsLock() }
+			else if !(event.modifierFlags.contains(.CapsLock))	{ deactivateCapsLock() }
 		}
 		return event
 	}
@@ -215,13 +215,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			// is the keyboard event a Caps Lock event (Caps Lock is keyCode 57)
 		if(event.keyCode == UInt16(kVK_CapsLock)) {
 			// check if Caps Lock is turned on
-			if event.modifierFlags.contains(.AlphaShiftKeyMask)		{ activateCapsLock() }
+			if event.modifierFlags.contains(.CapsLock)		{ activateCapsLock() }
 			else								{ deactivateCapsLock() }
 		}
 			// shift key
 		if(shiftIsActive && event.keyCode == UInt16(kVK_Shift)) {
-			if event.modifierFlags.contains(.ShiftKeyMask)			{ activateCapsLock() }
-			else if !(event.modifierFlags.contains(.AlphaShiftKeyMask))	{ deactivateCapsLock() }
+			if event.modifierFlags.contains(.Shift)			{ activateCapsLock() }
+			else if !(event.modifierFlags.contains(.CapsLock))	{ deactivateCapsLock() }
 		}
 	}
 
