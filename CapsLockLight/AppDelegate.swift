@@ -18,11 +18,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var window: NSWindow!
 	@IBOutlet weak var menu: NSMenu!
 	@IBOutlet weak var settingsWindow: NSWindow!
+	@IBOutlet weak var indicatorWindow: NSWindow!
 	
 	@IBOutlet weak var lowLightSettingsSlider: NSSliderCell!
 	@IBOutlet weak var highLightSettingsSlider: NSSliderCell!
 	@IBOutlet weak var shiftIsActiveSettingsCheckBox: NSButtonCell!
 	@IBOutlet weak var launchAtLoginSettingsCheckBox: NSButton!
+	@IBOutlet weak var greenScreenSettingsCheckBox: NSButton!
 	
 		// the status menu item
 	let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSSquareStatusItemLength)
@@ -48,6 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var lowLightVal: Int = 0x0
 	var shiftIsActive: Bool = false
 	var launchAtLogin: Bool = false
+	var greenIndicatorIsActive: Bool = false
 
 		// read user settings
 	let defaults = NSUserDefaults.standardUserDefaults()
@@ -102,9 +105,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			}
 		}
 		
+			// read settings for green indicator
+		defBool = defaults.objectForKey("greenIndicator")
+		print("greenIndicator: \(defBool?.boolValue)")
+		if(defBool != nil) {
+			greenIndicatorIsActive = defBool!.boolValue
+			if(greenIndicatorIsActive) {
+				greenScreenSettingsCheckBox.state = NSOnState
+			} else {
+				greenScreenSettingsCheckBox.state = NSOffState
+			}
+		}
+		
 			// read settings for start at login
 		defBool = defaults.objectForKey("launchAtLogin")
-		print("startAtLogin: \(defBool?.launchAtLogin)")
+		print("launchAtLogin: \(defBool?.launchAtLogin)")
 		if (defBool != nil) {
 			launchAtLogin = defBool!.boolValue
 			if(launchAtLogin) {
@@ -117,13 +132,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 		
 		
-		/*
+/*
 if(loginItemsManager.startAtLogin) {
 loginItemsManager.toggleStartAtLogin()
 }
 */
 
 
+		indicatorWindow.alphaValue = 0.2
+		let col = NSColor.greenColor()
+		indicatorWindow.backgroundColor = col
+
+		let f1:NSRect = NSScreen.mainScreen()!.frame
+
+/* use this for a green border at bottom of screen
+		let f2:NSRect = NSRect.init(x: f1.minX, y: f1.minY, width: f1.maxX, height: f1.height/20)
+		indicatorWindow.setFrame(f2, display: true)
+*/
+		
+// use this for full screen green indicator
+		indicatorWindow.setFrame(f1, display: true)
+
+		
+		indicatorWindow.ignoresMouseEvents = true
+
+		indicatorWindow.level = Int(CGWindowLevelForKey(.FloatingWindowLevelKey))
+		indicatorWindow.level = Int(CGWindowLevelForKey(.MaximumWindowLevelKey))
+		
+		
 			// setup the menu icon
 		button = statusItem.button
 		button.image = NSImage(named: "StatusItemIconOff")
@@ -193,6 +229,13 @@ loginItemsManager.toggleStartAtLogin()
 			if loginItemsManager.startAtLogin { loginItemsManager.toggleStartAtLogin() }
 		}
 	}
+	
+	@IBAction func greenScreenSettingsClicked(sender: AnyObject) {
+		print("Green screen settings clicked")
+		let checkBoxState: AnyObject = Int(greenScreenSettingsCheckBox.state) as NSNumber
+		defaults.setObject(checkBoxState, forKey: "greenIndicator")
+		greenIndicatorIsActive = (greenScreenSettingsCheckBox.state > 0)
+	}
 
 	func isCapsLockOn() -> Bool {
 		let eventModifier: UInt32 = GetCurrentKeyModifiers()
@@ -205,6 +248,7 @@ loginItemsManager.toggleStartAtLogin()
 		menu.itemWithTag(menuTags.SUPERCAPSLOCK.rawValue)?.setTitleWithMnemonic("CAPS LOCK ON&")
 		print("highLightval: \(highLightVal)")
 		keyboard_light.set(UInt64(highLightVal))
+		if(greenIndicatorIsActive) { indicatorWindow.setIsVisible(true) };
 	}
 	
 	func deactivateCapsLock() {
@@ -213,6 +257,7 @@ loginItemsManager.toggleStartAtLogin()
 		menu.itemWithTag(menuTags.SUPERCAPSLOCK.rawValue)?.setTitleWithMnemonic("Caps lock off&")
 		print("lowLightVal: \(lowLightVal)")
 		keyboard_light.set(UInt64(lowLightVal))
+		indicatorWindow.setIsVisible(false);
 	}
 
 	func capsLockOnEventLocal(event: NSEvent)->NSEvent {

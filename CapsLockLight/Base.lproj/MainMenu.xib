@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,12 +15,14 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SuperCapsLock" customModuleProvider="target">
             <connections>
+                <outlet property="greenScreenSettingsCheckBox" destination="1QF-Oa-nDy" id="akr-Me-rg9"/>
                 <outlet property="highLightSettingsSlider" destination="z7g-Eo-KC3" id="saD-UR-d2e"/>
+                <outlet property="indicatorWindow" destination="ocW-5M-I6r" id="kg5-oG-nSe"/>
                 <outlet property="launchAtLoginSettingsCheckBox" destination="QAx-59-Urk" id="iri-mz-Sfq"/>
                 <outlet property="lowLightSettingsSlider" destination="Ce4-Dq-PJb" id="6nM-hM-LwP"/>
                 <outlet property="menu" destination="TJb-2T-EFR" id="KXV-nb-OLe"/>
                 <outlet property="settingsWindow" destination="8wf-r5-bKe" id="ORl-q0-2uR"/>
-                <outlet property="shiftIsActiveSettingsCheckBox" destination="822-6a-EDX" id="f1I-OH-oeI"/>
+                <outlet property="shiftIsActiveSettingsCheckBox" destination="822-6a-EDX" id="OSZ-Z2-8pf"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="HwS-HZ-b8C"/>
             </connections>
         </customObject>
@@ -84,25 +87,25 @@ Sidney San Martín and Nikolai Vazquez</string>
         </menu>
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="8wf-r5-bKe">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <rect key="contentRect" x="196" y="240" width="250" height="332"/>
+            <rect key="contentRect" x="196" y="240" width="250" height="402"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" id="57T-Sa-117">
-                <rect key="frame" x="0.0" y="0.0" width="250" height="332"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="402"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-ly-twt">
-                        <rect key="frame" x="18" y="115" width="155" height="18"/>
+                        <rect key="frame" x="18" y="110.5" width="155" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="check" title="Activate with shift key" bezelStyle="regularSquare" imagePosition="left" inset="2" id="822-6a-EDX">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                             <connections>
-                                <action selector="shiftIsActiveSettingsClicked:" target="Voe-Tx-rLC" id="7PT-hc-cIJ"/>
+                                <action selector="shiftIsActiveSettingsClicked:" target="Voe-Tx-rLC" id="qbX-yZ-vTH"/>
                             </connections>
                         </buttonCell>
                     </button>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwC-kJ-YYs">
-                        <rect key="frame" x="18" y="208" width="214" height="24"/>
+                        <rect key="frame" x="18" y="263.5" width="214" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <sliderCell key="cell" alignment="left" maxValue="4095" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Ce4-Dq-PJb">
                             <connections>
@@ -111,7 +114,7 @@ Sidney San Martín and Nikolai Vazquez</string>
                         </sliderCell>
                     </slider>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-dX-yeQ">
-                        <rect key="frame" x="18" y="153" width="214" height="24"/>
+                        <rect key="frame" x="18" y="192" width="214" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <sliderCell key="cell" state="on" alignment="left" maxValue="4095" doubleValue="4094.9999999999995" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="z7g-Eo-KC3">
                             <connections>
@@ -120,7 +123,7 @@ Sidney San Martín and Nikolai Vazquez</string>
                         </sliderCell>
                     </slider>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Bw-34-c7H">
-                        <rect key="frame" x="18" y="178" width="129" height="17"/>
+                        <rect key="frame" x="18" y="220.5" width="129" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Brightness when ON" id="YUw-uK-bdD">
                             <font key="font" metaFont="system"/>
@@ -129,7 +132,7 @@ Sidney San Martín and Nikolai Vazquez</string>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SH9-96-2Gj">
-                        <rect key="frame" x="18" y="235" width="134" height="17"/>
+                        <rect key="frame" x="18" y="292" width="134" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Brightness when OFF" id="bee-W7-uEG">
                             <font key="font" metaFont="system"/>
@@ -138,28 +141,19 @@ Sidney San Martín and Nikolai Vazquez</string>
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="JLm-xB-yw1">
-                        <rect key="frame" x="0.0" y="199" width="250" height="5"/>
+                        <rect key="frame" x="0.0" y="248" width="250" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </box>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-e4-6Mi">
-                        <rect key="frame" x="0.0" y="257" width="250" height="5"/>
+                        <rect key="frame" x="0.0" y="319" width="250" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </box>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-GN-Apj">
-                        <rect key="frame" x="0.0" y="102" width="250" height="5"/>
+                        <rect key="frame" x="0.0" y="97" width="250" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </box>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-Sx-OBT">
-                        <rect key="frame" x="18" y="7" width="214" height="60"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Automatically launch the SuperCapsLock utility when your computer starts up." id="AI0-f1-hJM">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-59-Urk">
-                        <rect key="frame" x="18" y="74" width="115" height="18"/>
+                        <rect key="frame" x="18" y="71" width="115" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1af-KF-YDa">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -170,7 +164,7 @@ Sidney San Martín and Nikolai Vazquez</string>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-DJ-8a1">
-                        <rect key="frame" x="18" y="262" width="214" height="60"/>
+                        <rect key="frame" x="18" y="329" width="214" height="60"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Use sliders to set the brightness of your keyboard for Caps Lock on and off states." id="KrT-aW-I7d">
                             <font key="font" metaFont="system"/>
@@ -179,12 +173,46 @@ Sidney San Martín and Nikolai Vazquez</string>
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="i8I-PO-v4M">
-                        <rect key="frame" x="0.0" y="143" width="250" height="5"/>
+                        <rect key="frame" x="0.0" y="176.5" width="250" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </box>
+                    <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ULP-XS-QAX">
+                        <rect key="frame" x="0.0" y="137" width="250" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    </box>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QF-Oa-nDy">
+                        <rect key="frame" x="18" y="150" width="201" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Green screen indicator" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fTI-II-91Q">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="greenScreenSettingsClicked:" target="Voe-Tx-rLC" id="slF-Ri-oA4"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-Sx-OBT">
+                        <rect key="frame" x="18" y="7" width="214" height="60"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Automatically launch the SuperCapsLock utility when your computer starts up." id="AI0-f1-hJM">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="391" y="307"/>
+            <point key="canvasLocation" x="391" y="342"/>
+        </window>
+        <window title="Caps Lock Indicator Frame" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="ocW-5M-I6r">
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="200" height="200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="97f-xX-H0z">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+            <point key="canvasLocation" x="-46" y="148"/>
         </window>
     </objects>
 </document>
